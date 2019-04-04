@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-title>登录</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <br><br><br><br> <br><br><br><br>
+  <ion-grid class="xmf_form">
+      <ion-row>
+        <ion-item class="item_input" id="login_input">
+            <ion-input type="number" [(ngModel)]="params.usertel" placeholder="手机号"></ion-input>
+            
+        </ion-item>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-item class="item_input" id="login_input">
+            <ion-input type="number" [(ngModel)]="params.vcode" placeholder="验证码"></ion-input>
+            <button item-right ion-button round [disabled]="!verifyCode.disable" (click)="getCode()" style="height:30px;width: 90px;">{{verifyCode.verifyCodeTips}}</button>
+        </ion-item>
+      </ion-row>
+      <!--<br>
+      <ion-row>
+        <ion-item class="item_input" id="login_input">
+            <ion-input type="password" [(ngModel)]="params.newpass" placeholder="密码"> </ion-input>
+        </ion-item>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-item class="item_input" id="login_input">
+            <ion-input type="password" [(ngModel)]="params.sure_pwd" placeholder="确认密码"> </ion-input>
+        </ion-item>
+      </ion-row>-->
+      <br>
+      <ion-row>
+        <ion-col text-center>
+            <button ion-button full round (click)="doReset()"> 登录 </button>
+        </ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col tappable text-center>
+            <!--忘记密码？-->
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

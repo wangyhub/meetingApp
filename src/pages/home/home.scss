@@ -1,3 +1,255 @@
 page-home {
-
+/* Empty. Add your own CSS if you like */
+.row{
+    padding: 0px;
+  }
+  .col{
+    padding: 0px;
+  }
+  .col-offset-2{
+    margin-left:1%;
+  }
+  .col-offset-1{
+    margin-left:0.5%;
+  }
+  
+  .col-48{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 49.3%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 49.3%;
+    -ms-flex: 0 0 49.3%;
+    flex: 0 0 49.3%;
+  }
+  .col-49{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 49.2%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 49.2%;
+    -ms-flex: 0 0 49.2%;
+    flex: 0 0 49.2;
+  }
+  .col-50{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 49.4%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 49.4%;
+    -ms-flex: 0 0 49.4%;
+    flex: 0 0 49.4;
+  }
+  .col-22{
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 24.35%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 24.35%;
+    -ms-flex: 0 0 24.35%;
+    flex: 0 0 24.35%;
+  }
+  
+  #bmch{
+    background-image: url('/assets/imgs/bmch.png');
+    text-align: center;
+    vertical-align:middle;
+  
+  
+  }
+  #bmch p{
+    color: #ffffff;
+    margin-left: 2%;
+    margin-top: 2%;
+  }
+  
+  #bmchImg{
+    width: 36%;
+    height: 36%;
+    line-height: 100%;
+    display: inline-block;
+  }
+  
+  .meetingImg{
+    height: 100%;
+    width: 100%;
+  }
+  .characters{
+    position:absolute;
+    font-family: Songti;
+    font-size: 96%;
+    color: #FFFFFF;
+    letter-spacing: 0.1em;
+  }
+  .head{
+    position:absolute;
+    width:90%;
+    height:5%;
+    font-size: 95%;
+    color: #FFFFFF;
+    letter-spacing: 0.08em;
+  }
+  .headContent{
+    position:absolute;
+    font-family: Songti;
+    font-size: 150%;
+    color: #FFFFFF;
+    letter-spacing: 0.15em;
+  }
+  .gray {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  
+  .tab-item  i.icon {
+    margin-top: 2px;
+    height: 26px;
+    width: 26px;
+  }
+  .bar-meeting-on {
+    background: url(/assets/imgs/meeting-on.png) no-repeat center top;
+    background-size:cover;
+  
+  }
+  .bar-meeting-off {
+    background: url(/assets/imgs/meeting-off.png) no-repeat center top;
+    background-size:cover;
+  }
+  .bar-material-on{
+    background: url(/assets/imgs/material-on.png) no-repeat center top;
+    background-size:cover;
+  }
+  .bar-material-off{
+    background: url(/assets/imgs/material-off.png) no-repeat center top;
+    background-size:cover;
+  }
+  .bar-interaction-on{
+    background: url(/assets/imgs/interaction-on.png) no-repeat center top;
+    background-size:cover;
+  }
+  .bar-interaction-off{
+    background: url(/assets/imgs/interaction-off.png) no-repeat center top;
+    background-size:cover;
+  }
+  .bar-mine-on{
+    background: url(/assets/imgs/mine-on.png) no-repeat center top;
+    background-size:cover;
+  }
+  .bar-mine-off{
+    background: url(/assets/imgs/mine-off.png) no-repeat center top;
+    background-size:cover;
+  }
+  .bar-agenda-on{
+    background: url(/assets/imgs/agenda-on.png) no-repeat center top;
+    background-size:cover;
+  }
+  .bar-agenda-off{
+    background: url(/assets/imgs/agenda-off.png) no-repeat center top;
+    background-size:cover;
+  }
+  .icon-wxhy{
+    background: url(/assets/imgs/wxhy.png);
+  }
+   .icon-wxpyq{
+     background: url(/assets/imgs/wxpyq.png) no-repeat center top;
+     background-size:cover;
+   }
+   .icon-fxqx{
+     background: url(/assets/imgs/fxqx.png) no-repeat center top;
+     background-size:cover;
+   }
+  
+  .bar-message-have{
+    background: url(/assets/imgs/ldxx.png);
+    background-size:30px 30px;
+    background-repeat:no-repeat;
+  }
+  
+  .bar-message-no{
+    background: url(/assets/imgs/wldxx.png);
+    background-size:35px 35px;
+    background-repeat:no-repeat;
+  }
+  .messageHeader{
+    background-color: #F4F4F4;
+    width: 100%;
+    text-align: center;
+    line-height: 15px;
+    font-size: 12px;
+    color:  #9B9B9B;
+    letter-spacing: 0.19px;
+  }
+  .messageHeader_textP{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  
+  .messageHeader_timeP{
+    color: #9B9B9B;
+    margin-top: 7px;
+  }
+  
+  #contentP0{
+    color: #9B9B9B;
+  }
+  #contentP1{
+    color: #4A4A4A;
+  }
+  
+  .platform-android .action-sheet-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .platform-android .action-sheet {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: auto;
+    z-index: 11;
+    overflow: hidden;
+  }
+  .platform-android .action-sheet .action-sheet-title,
+  .platform-android .action-sheet .button {
+    display: block;
+    padding: 1px;
+    width: 100%;
+    border-radius: 0;
+    border-color: #d1d3d6;
+    background-color: transparent;
+    color: #007aff;
+    font-size: 21px;
+    text-align: center;
+  }
+  .platform-android .action-sheet .action-sheet-title {
+    padding: 16px;
+    color: #8f8f8f;
+    text-align: center;
+    font-size: 13px;
+  }
+  .platform-android .action-sheet .button.active,
+  .platform-android .action-sheet .button.activated {
+    background: #e8e8e8;
+  }
+  .platform-android .action-sheet-group {
+    margin-bottom: 8px;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  .platform-android .action-sheet-group .button {
+    border-width: 1px 0 0;
+  }
+  .platform-android .action-sheet .button {
+    display: block;
+    padding: 1px;
+    width: 100%;
+    border-radius: 0;
+    border-color: #d1d3d6;
+    background-color: transparent;
+    color: #007aff;
+    font-size: 21px;
+  }
+  .platform-android .action-sheet-cancel {
+    font-weight: 500;
+    display: block;
+  }
+ 
+  
 }

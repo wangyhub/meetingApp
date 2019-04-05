@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
-
+import { BindMeetingPage } from '../pages/bind-meeting/bind-meeting';
 @Component({
   templateUrl: 'app.html'
 })
@@ -20,16 +20,17 @@ export class MyApp {
       if(!result){
         this.rootPage = LoginPage;
       }else{
-        console.log("设置")
+        let meetingId = window.localStorage.getItem("meetingId");
+        //如果meetingId为空 那么跳转到绑定会议页面
+        if(meetingId==null || typeof(meetingId) == "undefined" || meetingId == ""){
+          this.rootPage = BindMeetingPage;
+        }
         this.storage.set('isLogin', true);
-        console.log(this.storage.get('isLogin'))
         this.rootPage = TabsPage;
       }
     })
 
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });

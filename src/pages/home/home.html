@@ -1,17 +1,59 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+    <div class="row" style="height: 37%;">
+        <div class="col">
+          <img class="meetingImg" src="./assets/imgs/head.png">
+          <div class="head" style="left:3%;top:-1.7%;">
+            <p>您好，<span style="color: #ffc900;">{{localMsg.userName}}</span>欢迎参加{{localMsg.meetingName}}</p>
+          </div>
+          <div ng-click="goMessageList()" class="{{messageShow}}" style="position:absolute;left:91%;top:1%;height: 12%;width: 10%;">
+            <!--<a href="#/message"><img class="meetingImg" src="./assets/imgs/ldxx.png"/></a>-->
+            <!--<i class="bar-message-have"></i>-->
+          </div>
+          <p class="headContent" style="margin-left:53%;margin-top:-25%;">
+            智能会议系统
+          </p>
+        </div>
+      </div>
+      <div class="row" style="height: 24%;margin-top: 0.5%;">
+        <div class="col col-48 col-offset-1">
+          <a href="#/tab/meeting/joinmeet"><img class="meetingImg"  src="./assets/imgs/bmch.png">
+            <p class="characters" style="left:12%;top:6%;">报名参会</p></a>
+        </div>
+        <div class="col col-49 col-offset-1">
+          <div class="col" style="height: 50%;padding-bottom: 0.5%;">
+            <a href="#/tab/meeting/stay"><img class="meetingImg" src="./assets/imgs/zsap.png"/>
+              <p class="characters" style="right:12%;top:24%;">住宿安排</p></a>
+          </div>
+          <div class="col" style="height: 50%;padding-top: 0.5%;">
+            <a href="#/tab/meeting/meals"><img class="meetingImg" src="./assets/imgs/ycap.png"/>
+              <p class="characters" style="left:12%;top:24%;">用餐安排</p></a>
+          </div>
+    
+        </div>
+      </div>
+    
+      <div class="row" style="height: 38%;margin-top: 0.5%;">
+        <div class="col col-48 col-offset-1">
+          <div class="col" style="height: 34%;padding-bottom: 1%;">
+            <a href="#/tab/meeting/seatlist"><img class="meetingImg" src="./assets/imgs/hczc.png">
+              <div class="characters" style="left:12%;top:40%;">会场座次</div></a>
+          </div>
+          <div class="col" style="height: 66%;">
+            <a href="#/tab/meeting/trends"><img class="meetingImg" src="./assets/imgs/xwdt.png">
+              <div class="characters" style="left:12%;top:70%;">新闻动态</div></a>
+          </div>
+        </div>
+    
+        <div class="col col-49 col-offset-1">
+          <div class="col" style="height: 66%;padding-bottom: 1%;">
+            <a href="#/tab/meeting/map"><img class="meetingImg" src="./assets/imgs/dhdt.png">
+              <div class="characters" style="left:12%;top:74%;">大会地图</div></a>
+          </div>
+          <div class="col" style="height: 34%;">
+            <a href="#/tab/meeting/shuttle"><img class="meetingImg" src="./assets/imgs/jsfw.png">
+              <div class="characters" style="right:12%;top:40%;">接送服务</div></a>
+          </div>
+        </div>
+      </div>
 </ion-content>

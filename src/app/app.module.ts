@@ -8,11 +8,14 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
-import { MinePage } from '../pages/mine/mine';
+import { MinePage } from '../pages/mine/mine';  //我的
+import { BindMeetingPage } from '../pages/bind-meeting/bind-meeting'; //绑定会议
+import { MeetingPromptPage } from '../pages/meeting-prompt/meeting-prompt'; //会议提示
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule  } from '@ionic/storage';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,18 @@ import { IonicStorageModule  } from '@ionic/storage';
     HomePage,
     TabsPage,
     LoginPage,
-    MinePage
+    MinePage,
+    BindMeetingPage,
+    MeetingPromptPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    JsonpModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp,{
-      tabsHideOnSubPages: 'true' //隐藏全部子页面 tabs
+      tabsHideOnSubPages: 'true', //隐藏全部子页面 tabs
+      backButtonText: '' /*配置返回按钮*/
     })
   ],
   bootstrap: [IonicApp],
@@ -39,7 +47,9 @@ import { IonicStorageModule  } from '@ionic/storage';
     HomePage,
     TabsPage,
     LoginPage,
-    MinePage
+    MinePage,
+    BindMeetingPage,
+    MeetingPromptPage
   ],
   providers: [
     StatusBar,

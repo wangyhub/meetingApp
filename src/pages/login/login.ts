@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
+import {Jsonp} from "@angular/http";
 import { Storage } from '@ionic/storage';
+
+
+import { TabsPage } from '../tabs/tabs';
+import { BindMeetingPage } from '../bind-meeting/bind-meeting';
+import {AppConfig} from "./../../app/app.config";
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -25,11 +31,12 @@ export class LoginPage {
       fromflag: 2,
       usertel: ""
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  constructor(private jsonp:Jsonp,
+                  public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+   
   }
   // 验证码倒计时
   verifyCode: any = {
@@ -82,7 +89,29 @@ export class LoginPage {
     }
 
     //请求后台验证登录
-    this.storage.set('isLogin', true);
-    this.navCtrl.push(TabsPage);
+    let url = AppConfig.getCurrentUrl()+"/checkUser?phone="+this.params.usertel+"&callback=JSONP_CALLBACK";
+    let that = this;
+    this.jsonp.get(url).subscribe(function(data){
+      //let result = data['_body'].data;
+      if(data['_body'].status == "200"){
+        let user = data['_body'].data;
+        that.storage.set('isLogin', true);
+        window.localStorage.setItem('userId', user.userId);
+        window.localStorage.setItem('userName', user.userName);
+        window.localStorage.setItem('phone', user.phone);
+        //如果用户没有根据邀请码绑定会议，那么跳转到绑定会议页面
+        if(user.meetingId=="" || typeof(user.meetingId) == "undefined" || user.meeting==null){
+          that.navCtrl.push(BindMeetingPage);
+        }else{
+          window.localStorage.setItem('meetingId', user.meetingId);
+          window.localStorage.setItem('meetingName', user.meetingName);
+          that.navCtrl.push(TabsPage);
+        }
+      }
+      
+    },function(err){
+      alert("网络异常");
+    });
+    
   }
 }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild  } from '@angular/core';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
@@ -11,6 +11,15 @@ import { BindMeetingPage } from '../pages/bind-meeting/bind-meeting';
 })
 export class MyApp {
   rootPage:any;
+
+  footerBtn;
+  // 父组件中使用@ViewChild拿到子组件的变量和方法（父组件可调用子组件的方法和变量）
+  // 这里引入的是app.html <ion-nav>
+  @ViewChild(Nav) nav: Nav;
+  placeholder = 'assets/imgs/logo.jpg';
+  chosenPicture: any;
+  butPages;
+  pages;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage: Storage) {
 
@@ -34,5 +43,44 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    this.initPages();
+    this.initButPages();
+    this.initfooter();
   }
+
+  initPages(){
+    this.pages=[
+      {title:'我的消息',component: TabsPage , icon:'ios-mail-outline'},
+      {title:'我的好友',component: TabsPage,icon:'ios-contact-outline'},
+      {title:'附近的人',component: TabsPage,icon:'ios-pin-outline'},
+      {title:'商城',component: TabsPage,icon:'ios-cart-outline'},
+      {title:'听歌识别',component: TabsPage,icon:'ios-mic-outline'},
+      {title:'定时停止播放',component: TabsPage,icon:'ios-clock-outline'},
+      {title:'扫一扫',component: TabsPage,icon:'ios-qr-scanner-outline'},
+      {title:'音乐闹钟',component: TabsPage,icon:'ios-alarm-outline'},
+      {title:'驾驶模式',component: TabsPage,icon:'ios-car-outline'},
+      {title:'个性换肤',component: TabsPage,icon:'ios-shirt-outline'},
+      {title:'音乐云盘',component: TabsPage,icon:'ios-cloudy-outline'}
+    ]
+  }
+
+  initButPages(){
+    this.butPages=[
+      {title:'my info',component: TabsPage},
+      {title:'my grade',component: TabsPage},
+      {title:'my grade',component: TabsPage}
+    ]
+  }
+  openPage(page) {
+    this.nav.push(page.component);
+  }
+  initfooter(){
+    this.footerBtn=[
+      {title:'夜间',icon:'ios-moon-outline'},
+      {title:'设置',icon:'ios-settings-outline'},
+      {title:'退出',icon:'ios-power-outline'},
+    ]
+  }
+
 }

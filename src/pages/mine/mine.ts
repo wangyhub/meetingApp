@@ -25,6 +25,7 @@ export class MinePage {
 
   loginOut() {
     this.storage.set('isLogin', false);
+    window.localStorage.clear();
     this.navCtrl.push(LoginPage);
   }
 }

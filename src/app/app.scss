@@ -53,3 +53,73 @@ $tabImageName: 'home' 'agenda' 'material' 'mine';
     width: 30px !important;
     height: 32px !important;
 }
+
+
+
+
+/**
+* 设置侧边栏样式
+*/
+.menu-header{
+    background-image: url(../assets/imgs/music.jpg);
+    height:28%;
+
+}
+.user-avatar {
+    padding-top:11%;
+    padding-left:6%;
+  }
+.user-avatar img{
+      width: 27%;
+      height: 26%;
+      border-radius:50%;
+  }
+.myname{
+      padding-left: 6%;
+      font-family: KaiTi;
+      color:white;
+      font-size: 1.2em;
+      display: block;
+      float: left;
+      margin-right: 4%;
+      padding-top:6px;
+  }
+.grade{
+      height: 16px;
+      width: 30px;
+      border: white 1px solid;
+      font-family: KaiTi;
+      font-size: 0.8em;
+      text-align: center;
+      color: white;
+      border-radius:8px;
+      display: block;
+      margin-top:9px;
+      float: left;
+  }
+  .grade1{
+    height: 22px;
+    width: 60px;
+    border: white 1px solid;
+    font-family: KaiTi;
+    font-size: 0.8em;
+    color: white;
+    border-radius: 8px;
+    display: block;
+    float: right;
+    margin-right:5%;
+    margin-top:5px;
+    text-align: center;
+    line-height: 22px;
+}
+.menu-list{
+    padding-top:3%;
+    height: 64%;
+}
+
+.menu-footer button{
+    color: black;
+}
+.iconColor{
+    color: gray;
+}

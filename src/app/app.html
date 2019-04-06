@@ -1,1 +1,47 @@
 <ion-nav [root]="rootPage"></ion-nav>
+
+<ion-menu [content]="content">
+        <ion-content>
+          <!-- div header :里面是我编写的一个菜单页面的头部，一般情况下可以省掉 -->
+          <div class="menu-header">
+            <!-- onerror: 事件会在文档或图像加载过程中发生错误时被触发。 -->
+            <div class="user-avatar ">
+              <img [src]="chosenPicture || placeholder" onerror="this.src='assets/imgs/logo.png'" />
+            </div>
+            <div menuClose *ngFor="let p of butPages;let i=index">
+              <div class="myname" (click)="openPage(p)" *ngIf="i==0">我-丹</div>
+              <div class="grade" (click)="openPage(p)" *ngIf="i==1">lv.4</div>
+              <div class="grade1" (click)="openPage(p)" *ngIf="i==2">
+                签到 >
+              </div>
+            </div>
+          </div>
+      <!-- div menuList：是主要的菜单部分，这部分是菜单重点 -->
+          <div class="menu-list">
+            <!-- no-lines：取消list的默认线条 -->
+            <ion-list no-lines>
+              <button menuClose="left" ion-item *ngFor="let p of pages;let i=index" (click)="openPage(p)">
+                <ion-icon name="{{p.icon}}" item-left class="iconColor"></ion-icon>
+                {{p.title}}
+              </button>
+            </ion-list>
+          </div>
+        </ion-content>
+        
+        <!--footer： 是这个菜单页面的底部也可以省略 -->
+        <ion-footer>
+            <div class="menu-footer">
+                <ion-grid>
+                  <ion-row >
+                    <ion-col col-4 *ngFor="let f of footerBtn">
+                     <button ion-button clear >
+                        <ion-icon name="{{f.icon}}" item-left class="iconColor" ></ion-icon> 
+                        {{f.title}}
+                     </button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </div>
+        </ion-footer>
+      </ion-menu>
+      <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

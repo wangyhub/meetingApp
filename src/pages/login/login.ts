@@ -100,7 +100,7 @@ export class LoginPage {
         window.localStorage.setItem('userName', user.userName);
         window.localStorage.setItem('phone', user.phone);
         //如果用户没有根据邀请码绑定会议，那么跳转到绑定会议页面
-        if(user.meetingId=="" || typeof(user.meetingId) == "undefined" || user.meeting==null){
+        if(user.meetingId==""){
           that.navCtrl.push(BindMeetingPage);
         }else{
           window.localStorage.setItem('meetingId', user.meetingId);

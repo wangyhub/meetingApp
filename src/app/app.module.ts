@@ -17,6 +17,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule  } from '@ionic/storage';
 import { HttpModule, JsonpModule } from '@angular/http';
 
+import { Camera } from '@ionic-native/camera';  //相机插件
+import { File } from '@ionic-native/file';  //用于操作文件、目录插件
+import { FileTransfer } from '@ionic-native/file-transfer'; //上传和下载文件插件
+import { ImagePicker } from '@ionic-native/image-picker';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -54,7 +60,11 @@ import { HttpModule, JsonpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    File,
+    ImagePicker,
+    FileTransfer
   ]
 })
 export class AppModule {}

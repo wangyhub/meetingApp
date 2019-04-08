@@ -23,7 +23,7 @@ export class MyApp {
   chosenPicture: any;
   butPages;
   pages;
-
+  public avatar;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage: Storage,
       public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public imagePicker: ImagePicker, 
       public camera: Camera) {
@@ -127,7 +127,7 @@ export class MyApp {
 
     this.camera.getPicture(options).then(image => {
       console.log('Image URI: ' + image);
-      //this.avatar = image.slice(7);
+      //this.avatar = image.slice(7); /storage/emulated/0/Android/data/io.ionic.starter/cache/xxxx.jpg
       alert("image.slice(7)="+image.slice(7));
     }, error => {
       console.log('Error: ' + error);
@@ -145,7 +145,7 @@ export class MyApp {
         this.presentAlert();
       } else if (images.length === 1) {
         console.log('Image URI: ' + images[0]);
-        //this.avatar = images[0].slice(7);
+        //this.avatar = images[0].slice(7); /data/user/0/io.ionic.starter/cache/tmp_IMG_20190408_083411611637517.jpg
         alert("images[0].slice(7)="+images[0].slice(7));
       }
     }, error => {

@@ -6,7 +6,7 @@
           <div class="menu-header">
             <!-- onerror: 事件会在文档或图像加载过程中发生错误时被触发。 -->
             <div class="user-avatar ">
-              <img [src]="chosenPicture || placeholder" onerror="this.src='assets/imgs/logo.png'" (click)="presentActionSheet()"/>
+              <img [src]="avatar" onerror="this.src='assets/imgs/logo.png'" (click)="presentActionSheet()"/>
             </div>
             <div menuClose *ngFor="let p of butPages;let i=index">
               <div class="myname" (click)="openPage(p)" *ngIf="i==0">我-丹</div>

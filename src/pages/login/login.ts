@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Jsonp} from "@angular/http";
+import { Jsonp } from "@angular/http";
 import { Storage } from '@ionic/storage';
 
 
@@ -91,7 +91,7 @@ export class LoginPage {
     //请求后台验证登录
     let url = AppConfig.getCurrentUrl()+"/checkUser?phone="+this.params.usertel+"&callback=JSONP_CALLBACK";
     let that = this;
-    this.jsonp.get(url).subscribe(function(data){
+    this.jsonp.get(url).subscribe(data=>{
       //let result = data['_body'].data;
       if(data['_body'].status == "200"){
         let user = data['_body'].data;
@@ -109,7 +109,7 @@ export class LoginPage {
         }
       }
       
-    },function(err){
+    },err=>{
       alert("网络异常");
     });
     

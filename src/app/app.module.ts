@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { MinePage } from '../pages/mine/mine';  //我的
 import { BindMeetingPage } from '../pages/bind-meeting/bind-meeting'; //绑定会议
 import { MeetingPromptPage } from '../pages/meeting-prompt/meeting-prompt'; //会议提示
+import { NewsPage } from '../pages/home/news/news'; //新闻列表
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +21,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { Camera } from '@ionic-native/camera';  //相机插件
 import { File } from '@ionic-native/file';  //用于操作文件、目录插件
 import { FileTransfer } from '@ionic-native/file-transfer'; //上传和下载文件插件
-import { ImagePicker } from '@ionic-native/image-picker';
+import { ImagePicker } from '@ionic-native/image-picker'; //相册操作插件
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
     LoginPage,
     MinePage,
     BindMeetingPage,
-    MeetingPromptPage
+    MeetingPromptPage,
+    NewsPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
     LoginPage,
     MinePage,
     BindMeetingPage,
-    MeetingPromptPage
+    MeetingPromptPage,
+    NewsPage
   ],
   providers: [
     StatusBar,

@@ -1,11 +1,12 @@
 import { Component, ViewChild  } from '@angular/core';
-import { Platform, Nav, ActionSheetController, AlertController } from 'ionic-angular';
+import { Platform, Nav, ActionSheetController, AlertController, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { BindMeetingPage } from '../pages/bind-meeting/bind-meeting';
+import { LocationPage } from '../pages/mine/location/location';
 
 import {ImagePicker, ImagePickerOptions} from "@ionic-native/image-picker";
 import {Camera, CameraOptions} from "@ionic-native/camera";
@@ -19,14 +20,20 @@ export class MyApp {
   // 父组件中使用@ViewChild拿到子组件的变量和方法（父组件可调用子组件的方法和变量）
   // 这里引入的是app.html <ion-nav>
   @ViewChild(Nav) nav: Nav;
+  @ViewChild('appNav') private navCtrl: NavController;
   placeholder = 'assets/imgs/logo.jpg';
   chosenPicture: any;
   butPages;
   pages;
   public avatar;
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage: Storage,
-      public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public imagePicker: ImagePicker, 
-      public camera: Camera) {
+  constructor(platform: Platform, 
+              statusBar: StatusBar, 
+              splashScreen: SplashScreen, 
+              private storage: Storage,
+              public actionSheetCtrl: ActionSheetController, 
+              public alertCtrl: AlertController, 
+              public imagePicker: ImagePicker, 
+              public camera: Camera) {
 
     //这里如果打开直接就跳到tab页面了
     //这里不能直接用firstIn他用了过后表示直接就有了。。。
@@ -58,7 +65,7 @@ export class MyApp {
     this.pages=[
       {title:'我的消息',component: TabsPage , icon:'ios-mail-outline'},
       {title:'我的好友',component: TabsPage,icon:'ios-contact-outline'},
-      {title:'附近的人',component: TabsPage,icon:'ios-pin-outline'},
+      {title:'我的位置',component: LocationPage,icon:'ios-pin-outline'},
       {title:'商城',component: TabsPage,icon:'ios-cart-outline'},
       {title:'听歌识别',component: TabsPage,icon:'ios-mic-outline'},
       {title:'定时停止播放',component: TabsPage,icon:'ios-clock-outline'},
@@ -78,7 +85,7 @@ export class MyApp {
     ]
   }
   openPage(page) {
-    this.nav.push(page.component);
+    this.navCtrl.push(page.component);
   }
   initfooter(){
     this.footerBtn=[
@@ -146,11 +153,17 @@ export class MyApp {
       } else if (images.length === 1) {
         console.log('Image URI: ' + images[0]);
         //this.avatar = images[0].slice(7); /data/user/0/io.ionic.starter/cache/tmp_IMG_20190408_083411611637517.jpg
-        alert("images[0].slice(7)="+images[0].slice(7));
+        //alert("images[0].slice(7)="+images[0].slice(7));
+        //that.avatar = "file:///"+images[0].slice(7);
+        //alert("that.avatar="+that.avatar);
+        this.avatar = images;
+        alert("images"+images);
+        alert("images[0]"+images[0]);
       }
     }, error => {
       console.log('Error: ' + error);
     });
+    
   }
 
   presentAlert() {

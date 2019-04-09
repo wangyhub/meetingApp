@@ -12,6 +12,7 @@ import { MinePage } from '../pages/mine/mine';  //我的
 import { BindMeetingPage } from '../pages/bind-meeting/bind-meeting'; //绑定会议
 import { MeetingPromptPage } from '../pages/meeting-prompt/meeting-prompt'; //会议提示
 import { NewsPage } from '../pages/home/news/news'; //新闻列表
+import { LocationPage } from '../pages/mine/location/location'; //定位当前位置
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,7 +23,7 @@ import { Camera } from '@ionic-native/camera';  //相机插件
 import { File } from '@ionic-native/file';  //用于操作文件、目录插件
 import { FileTransfer } from '@ionic-native/file-transfer'; //上传和下载文件插件
 import { ImagePicker } from '@ionic-native/image-picker'; //相册操作插件
-
+import { Geolocation } from '@ionic-native/geolocation';  //GPS定位
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ImagePicker } from '@ionic-native/image-picker'; //相册操作插件
     MinePage,
     BindMeetingPage,
     MeetingPromptPage,
-    NewsPage
+    NewsPage,
+    LocationPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import { ImagePicker } from '@ionic-native/image-picker'; //相册操作插件
     MinePage,
     BindMeetingPage,
     MeetingPromptPage,
-    NewsPage
+    NewsPage,
+    LocationPage
   ],
   providers: [
     StatusBar,
@@ -67,7 +70,8 @@ import { ImagePicker } from '@ionic-native/image-picker'; //相册操作插件
     Camera,
     File,
     ImagePicker,
-    FileTransfer
+    FileTransfer,
+    Geolocation
   ]
 })
 export class AppModule {}

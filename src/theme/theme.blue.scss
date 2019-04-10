@@ -1,0 +1,37 @@
+.blue-theme {
+    $blue-color: #488AFF;
+
+    .toolbar-title {
+        color: #fff;
+    }
+
+    .header .toolbar-background {
+        background-color: $blue-color;
+    }
+
+    .toolbar-background-md{
+        background-color: $blue-color;
+    }
+
+    .tabs-md {
+
+        .tab-button[aria-selected="true"] {
+          color: $blue-color;
+          .tab-button-icon {
+            color: $blue-color;
+          }
+        }
+      }
+
+      .theme-icon {
+        color: $blue-color;
+      }
+    
+      .theme-button-bg{
+        background-color: $blue-color;
+      }
+
+      .back-button {
+        color: #ffffff;
+    }
+}

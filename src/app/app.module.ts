@@ -13,6 +13,10 @@ import { BindMeetingPage } from '../pages/bind-meeting/bind-meeting'; //绑定�
 import { MeetingPromptPage } from '../pages/meeting-prompt/meeting-prompt'; //会议提示
 import { NewsPage } from '../pages/home/news/news'; //新闻列表
 import { LocationPage } from '../pages/mine/location/location'; //定位当前位置
+import { ChangeThemePage } from '../pages/mine/change-theme/change-theme';  //改变主题
+import { ScanPage } from '../pages/mine/scan/scan';  //扫一扫
+
+import { ThemeProvider } from '../providers/theme/theme';  //自定义主题
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +28,7 @@ import { File } from '@ionic-native/file';  //用于操作文件、目录插件
 import { FileTransfer } from '@ionic-native/file-transfer'; //上传和下载文件插件
 import { ImagePicker } from '@ionic-native/image-picker'; //相册操作插件
 import { Geolocation } from '@ionic-native/geolocation';  //GPS定位
+import { QRScanner } from '@ionic-native/qr-scanner'; //扫一扫
 
 @NgModule({
   declarations: [
@@ -37,7 +42,9 @@ import { Geolocation } from '@ionic-native/geolocation';  //GPS定位
     BindMeetingPage,
     MeetingPromptPage,
     NewsPage,
-    LocationPage
+    LocationPage,
+    ChangeThemePage,
+    ScanPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,9 @@ import { Geolocation } from '@ionic-native/geolocation';  //GPS定位
     BindMeetingPage,
     MeetingPromptPage,
     NewsPage,
-    LocationPage
+    LocationPage,
+    ChangeThemePage,
+    ScanPage
   ],
   providers: [
     StatusBar,
@@ -71,7 +80,9 @@ import { Geolocation } from '@ionic-native/geolocation';  //GPS定位
     File,
     ImagePicker,
     FileTransfer,
-    Geolocation
+    Geolocation,
+    ThemeProvider,
+    QRScanner
   ]
 })
 export class AppModule {}

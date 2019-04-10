@@ -7,6 +7,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { BindMeetingPage } from '../pages/bind-meeting/bind-meeting';
 import { LocationPage } from '../pages/mine/location/location';
+import { ThemeProvider } from '../providers/theme/theme';
+import { ChangeThemePage } from '../pages/mine/change-theme/change-theme';
+import { ScanPage } from '../pages/mine/scan/scan';
 
 import {ImagePicker, ImagePickerOptions} from "@ionic-native/image-picker";
 import {Camera, CameraOptions} from "@ionic-native/camera";
@@ -25,7 +28,8 @@ export class MyApp {
   chosenPicture: any;
   butPages;
   pages;
-  public avatar;
+  avatar;
+  selectedTheme: String;
   constructor(platform: Platform, 
               statusBar: StatusBar, 
               splashScreen: SplashScreen, 
@@ -33,8 +37,10 @@ export class MyApp {
               public actionSheetCtrl: ActionSheetController, 
               public alertCtrl: AlertController, 
               public imagePicker: ImagePicker, 
-              public camera: Camera) {
-
+              public camera: Camera,
+              private theme : ThemeProvider) {
+    // 获取当前主题
+    this.theme.getActiveTheme().subscribe(val => this.selectedTheme = val);
     //这里如果打开直接就跳到tab页面了
     //这里不能直接用firstIn他用了过后表示直接就有了。。。
     this.storage.get('isLogin').then((result) => {
@@ -69,10 +75,10 @@ export class MyApp {
       {title:'商城',component: TabsPage,icon:'ios-cart-outline'},
       {title:'听歌识别',component: TabsPage,icon:'ios-mic-outline'},
       {title:'定时停止播放',component: TabsPage,icon:'ios-clock-outline'},
-      {title:'扫一扫',component: TabsPage,icon:'ios-qr-scanner-outline'},
+      {title:'扫一扫',component: ScanPage,icon:'ios-qr-scanner-outline'},
       {title:'音乐闹钟',component: TabsPage,icon:'ios-alarm-outline'},
       {title:'驾驶模式',component: TabsPage,icon:'ios-car-outline'},
-      {title:'个性换肤',component: TabsPage,icon:'ios-shirt-outline'},
+      {title:'个性换肤',component: ChangeThemePage,icon:'ios-shirt-outline'},
       {title:'音乐云盘',component: TabsPage,icon:'ios-cloudy-outline'}
     ]
   }
@@ -129,13 +135,18 @@ export class MyApp {
       allowEdit: true,
       targetWidth: 200,
       targetHeight: 200,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      destinationType: this.camera.DestinationType.DATA_URL,        // DATA_URL 是 base64   FILE_URL 是文件路径
+      encodingType: this.camera.EncodingType.JPEG,
       saveToPhotoAlbum: true,
     };
 
     this.camera.getPicture(options).then(image => {
       console.log('Image URI: ' + image);
       //this.avatar = image.slice(7); /storage/emulated/0/Android/data/io.ionic.starter/cache/xxxx.jpg
-      alert("image.slice(7)="+image.slice(7));
+      let base64Image = 'data:image/jpeg;base64,'+image;
+      this.avatar = base64Image;
+      alert("base64Image="+base64Image);
     }, error => {
       console.log('Error: ' + error);
     });
@@ -145,7 +156,8 @@ export class MyApp {
     const options: ImagePickerOptions = {
       maximumImagesCount: 1,
       width: 200,
-      height: 200
+      height: 200,
+      outputType: 1,
     };
     this.imagePicker.getPictures(options).then(images => {
       if (images.length > 1) {
@@ -156,9 +168,8 @@ export class MyApp {
         //alert("images[0].slice(7)="+images[0].slice(7));
         //that.avatar = "file:///"+images[0].slice(7);
         //alert("that.avatar="+that.avatar);
-        this.avatar = images;
-        alert("images"+images);
-        alert("images[0]"+images[0]);
+        let base64Image = 'data:image/jpeg;base64,'+images;
+        this.avatar = base64Image;
       }
     }, error => {
       console.log('Error: ' + error);

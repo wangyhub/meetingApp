@@ -1,0 +1,48 @@
+.purple-theme {
+    $purple-color: #E93EFF;
+    ion-content {
+      background-color: #fff;
+    }
+  
+    .toolbar-background {
+      background-color: $purple-color !important;
+    }
+    .toolbar-background-md{
+      background-color: $purple-color !important;
+    }
+  
+    .toolbar-title {
+      color: #fff;
+    }
+  
+    .tabs-md {
+      .tab-button[aria-selected="true"] {
+        color: $purple-color;
+        .tab-button-icon {
+          color: $purple-color;
+        }
+      }
+      
+    }
+    .tabs-ios {
+      .tab-button[aria-selected="true"] {
+        color: $purple-color;
+        .tab-button-icon {
+          color: $purple-color;
+        }
+      }
+      
+    }
+  
+    .theme-icon {
+      color: $purple-color;
+    }
+     .theme-button-bg{
+      background-color: $purple-color;
+    }
+
+    .back-button {
+        color: #ffffff;
+    }
+  }
+  

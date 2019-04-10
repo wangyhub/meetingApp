@@ -18,4 +18,11 @@
 
 <ion-content padding>
  <button ion-button block color="danger" (click)="loginOut()">退出</button>
+
+ <button ion-item  hideWhen="ios" detail-none>
+    <ion-icon name="log-out" item-left color="danger"></ion-icon>
+    退出当前账号
+  </button>
+
+  <button ion-button [navPush]="ScanPage">扫一扫</button>
 </ion-content>

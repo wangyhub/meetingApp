@@ -16,7 +16,6 @@ import { ScanPage } from '../mine/scan/scan'; //新闻列表
   templateUrl: 'mine.html',
 })
 export class MinePage {
-  ScanPage = ScanPage;
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
   }
 
@@ -28,5 +27,9 @@ export class MinePage {
     this.storage.set('isLogin', false);
     window.localStorage.clear();
     this.navCtrl.push(LoginPage);
+  }
+
+  goSacn() {
+    this.navCtrl.push(ScanPage);
   }
 }

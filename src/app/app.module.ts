@@ -53,6 +53,8 @@ import { QRScanner } from '@ionic-native/qr-scanner'; //扫一扫
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages: 'true', //隐藏全部子页面 tabs
+      iconMode: 'ios',
+      mode: 'ios',
       backButtonText: '' /*配置返回按钮*/
     })
   ],

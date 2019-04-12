@@ -29,6 +29,7 @@ import { FileTransfer } from '@ionic-native/file-transfer'; //上传和下载文
 import { ImagePicker } from '@ionic-native/image-picker'; //相册操作插件
 import { Geolocation } from '@ionic-native/geolocation';  //GPS定位
 import { QRScanner } from '@ionic-native/qr-scanner'; //扫一扫
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio'; //指纹识别
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { QRScanner } from '@ionic-native/qr-scanner'; //扫一扫
     FileTransfer,
     Geolocation,
     ThemeProvider,
-    QRScanner
+    QRScanner,
+    FingerprintAIO
   ]
 })
 export class AppModule {}

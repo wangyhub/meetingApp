@@ -11,4 +11,7 @@ export class AboutPage {
 
   }
 
+  goFingerprint(){
+    this.navCtrl.push('FingerprintPage');
+  }
 }

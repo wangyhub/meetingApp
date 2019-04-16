@@ -14,7 +14,7 @@ import { MeetingPromptPage } from '../pages/meeting-prompt/meeting-prompt'; //�
 import { NewsPage } from '../pages/home/news/news'; //新闻列表
 import { LocationPage } from '../pages/mine/location/location'; //定位当前位置
 import { ChangeThemePage } from '../pages/mine/change-theme/change-theme';  //改变主题
-import { ScanPage } from '../pages/mine/scan/scan';  //扫一扫
+import { ScanPage } from '../pages/scan/scan';  //扫一扫
 
 import { ThemeProvider } from '../providers/theme/theme';  //自定义主题
 

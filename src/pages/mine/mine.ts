@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { LoginPage } from '../login/login';
-import { ScanPage } from '../mine/scan/scan'; //新闻列表
+import { ScanPage } from '../scan/scan'; //新闻列表
 /**
  * Generated class for the MinePage page.
  *

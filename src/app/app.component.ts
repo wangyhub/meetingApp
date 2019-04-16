@@ -9,7 +9,7 @@ import { BindMeetingPage } from '../pages/bind-meeting/bind-meeting';
 import { LocationPage } from '../pages/mine/location/location';
 import { ThemeProvider } from '../providers/theme/theme';
 import { ChangeThemePage } from '../pages/mine/change-theme/change-theme';
-import { ScanPage } from '../pages/mine/scan/scan';
+import { ScanPage } from '../pages/scan/scan';
 
 import {ImagePicker, ImagePickerOptions} from "@ionic-native/image-picker";
 import {Camera, CameraOptions} from "@ionic-native/camera";

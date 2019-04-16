@@ -32,12 +32,17 @@ export class FingerprintPage {
         localizedFallbackTitle: '指纹认证', // Only for iOS
         localizedReason: '输入指纹' // Only for iOS
       }).then((result: any) => {
-        alert("11111");
+        let alert = this.alertCtrl.create({
+          title: '成功',
+          subTitle: '登陆成功',
+          buttons: ['关闭']
+        });
+        alert.present();
         this.navCtrl.pop();
       }).catch((error: any) => {
         let alert = this.alertCtrl.create({
           title: '错误',
-          subTitle: error,
+          subTitle: '指纹错误',
           buttons: ['关闭']
         });
         alert.present();
